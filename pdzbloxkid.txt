@@ -105,35 +105,305 @@ local Window = Fluent:CreateWindow({
     Theme = "Dark",
     MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
 })
+local Tabs = {
+     Shop = Window:AddTab({ Title = "Tab Shop", Icon = "" }),
+    STSV = Window:AddTab({ Title = "Tab Status And Server", Icon = "" }),
+    Player = Window:AddTab({ Title = "Tab Local Player", Icon = "" }),
+    STFarm = Window:AddTab({ Title = "Setting Farm", Icon = "" }),
+    STSkill = Window:AddTab({ Title = "Setting Hold \n and Select Skill", Icon = "" }),
+    Farming = Window:AddTab({ Title = "Tab Farming", Icon = "" }),
+    StackFarm = Window:AddTab({ Title = "Tab Stack Farm", Icon = "" }),
+    FarmingOther = Window:AddTab({ Title = "Tab Farming Other", Icon = "" }),
+    Raid = Window:AddTab({ Title = "Tab Fruit And Raid", Icon = "" }),
+    SeaEvent = Window:AddTab({ Title = "Tab Sea Event", Icon = "" }),
+    Race = Window:AddTab({ Title = "Tab Upgrade Race", Icon = "" }),
+    Item = Window:AddTab({ Title = "Tab Get \n and Upgrade Items", Icon = "" }),
+    Volcano = Window:AddTab({ Title = "Tab Volcano Event", Icon = "" }),
+    Webhook = Window:AddTab({ Title = "Tab Webhook", Icon = "" }),
+    ESP = Window:AddTab({ Title = "Tab ESP", Icon = "" }),
+    PVP = Window:AddTab({ Title = "Tab PVP", Icon = "" }),
+}
 
-local function StopTween()
-    if _G.StopTween then
-        return
-    end
-    
-    _G.StopTween = true
-    wait()
-    local player = game.Players.LocalPlayer
-    local character = player.Character
-    if character and character:IsDescendantOf(game.Workspace) then
-        local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
-        if humanoidRootPart then
-            humanoidRootPart.CFrame = humanoidRootPart.CFrame
+Tabs.Shop:AddButton({
+        Title = "Redeem Code",
+        Description = "",
+        Callback = function()
         end
-    end
-    wait()    
-    if character:FindFirstChild("BodyClip") then
-        character.BodyClip:Destroy()
-    end
-    if character:FindFirstChild("PartTele") then
-        character.PartTele:Destroy()
-    end
-    _G.StopTween = false
-end
+    })
+    
+    Tabs.Shop:AddButton({
+        Title = "Teleport Old World",
+        Description = "",
+        Callback = function()
+        end
+    })
+    
+    Tabs.Shop:AddButton({
+        Title = "Teleport New World",
+        Description = "",
+        Callback = function()
+        end
+    })
+    
+    Tabs.Shop:AddButton({
+        Title = "Teleport Third Sea",
+        Description = "",
+        Callback = function()
+        end
+    })
+    
+    Tabs.Shop:AddParagraph({
+        Title = "Fighting Shop",
+        Content = "-----"
+    })
+    
+    Tabs.Shop:AddButton({
+        Title = "Black Leg",
+        Description = "",
+        Callback = function()
+        end
+    })
+   
+    Tabs.Shop:AddButton({
+        Title = "Fishman Karate",
+        Description = "",
+        Callback = function()
+        end
+    })
+    
+    Tabs.Shop:AddButton({
+        Title = "Electro",
+        Description = "",
+        Callback = function()
+        end
+    })
+    
+    Tabs.Shop:AddButton({
+        Title = "Dragon Breath",
+        Description = "",
+        Callback = function()
+        end
+    })
+    
+    Tabs.Shop:AddButton({
+        Title = "SuperHuman",
+        Description = "",
+        Callback = function()
+        end
+    })
+    
+    Tabs.Shop:AddButton({
+        Title = "Death Step",
+        Description = "",
+        Callback = function()
+        end
+    })
+    
+    Tabs.Shop:AddButton({
+        Title = "Sharkman Karate",
+        Description = "",
+        Callback = function()
+        end
+    })
+    
+    Tabs.Shop:AddButton({
+        Title = "Electric Claw",
+        Description = "",
+        Callback = function()
+        end
+    })
+    
+    Tabs.Shop:AddButton({
+        Title = "Dragon Talon",
+        Description = "",
+        Callback = function()
+        end
+    })
+    
+    Tabs.Shop:AddButton({
+        Title = "God Human",
+        Description = "",
+        Callback = function()
+        end
+    })
+    
+    Tabs.Shop:AddButton({
+        Title = "Sanguine Art",
+        Description = "",
+        Callback = function()
+        end
+    })
 
-MatsuneA1["4"].MouseButton1Click:Connect(function()
-    StopTween()
-end)
+    Tabs.Shop:AddParagraph({
+        Title = "Abilities Shop",
+        Content = "-----"
+    })
+
+    Tabs.Shop:AddButton({
+        Title = "Skyjump [ $10,000 Beli ]",
+        Description = "",
+        Callback = function()
+        end
+    })
+
+    Tabs.Shop:AddButton({
+        Title = "Buso Haki [ $25,000 Beli ]",
+        Description = "",
+        Callback = function()
+        end
+    })
+
+    Tabs.Shop:AddButton({
+        Title = "Observation Haki [ $750,000 Beli ]",
+        Description = "",
+        Callback = function()
+        end
+    })
+
+    Tabs.Shop:AddButton({
+        Title = "Soru [ $100,000 Beli ]",
+        Description = "",
+        Callback = function()
+        end
+    })
+
+    Tabs.Shop:AddParagraph({
+        Title = "Miss Shop",
+        Content = "-----"
+    })
+
+    Tabs.Shop:AddButton({
+        Title = "Buy Dual Flintlock",
+        Description = "",
+        Callback = function()
+        end
+    })
+
+    Tabs.Shop:AddButton({
+        Title = "Reroll Race",
+        Description = "",
+        Callback = function()
+        end
+    })
+
+    Tabs.Shop:AddButton({
+        Title = "Reset Stats",
+        Description = "",
+        Callback = function()
+        end
+    })
+
+    Tabs.Shop:AddButton({
+        Title = "Buy Race Cyborg",
+        Description = "",
+        Callback = function()
+        end
+    })
+
+    Tabs.Shop:AddButton({
+        Title = "Buy Race Ghoul",
+        Description = "",
+        Callback = function()
+        end
+    })
+
+    Tabs.STSV:AddParagraph({
+        Title = "Time",
+        Content = "| Hour : 0 | Minute : 0 | Second : 0 |"
+})
+
+    Tabs.STSV:AddParagraph({
+        Title = "Elite Mob",
+        Content = "❌"
+})
+
+    Tabs.STSV:AddParagraph({
+        Title = "Eyes Summon Tyrant",
+        Content = ""
+})
+
+    Tabs.STSV:AddParagraph({
+        Title = "Summon Katakuri",
+        Content = ""
+})
+
+    Tabs.STSV:AddParagraph({
+        Title = "Status SPY",
+        Content = ""
+})
+
+    Tabs.STSV:AddParagraph({
+        Title = "Mirage",
+        Content = "❌"
+})
+
+    Tabs.STSV:AddParagraph({
+        Title = "Prehistoric Island",
+        Content = "❌"
+})
+
+    Tabs.STSV:AddParagraph({
+        Title = "Frozen Dimension",
+        Content = "❌"
+})
+
+    Tabs.STSV:AddParagraph({
+        Title = "Moon",
+        Content = ""
+})
+
+    Tabs.STSV:AddParagraph({
+        Title = "Acient One Status",
+        Content = ""
+})
+
+    Tabs.STSV:AddInput("Input", {
+        Title = "Input JobId Normal",
+        Default = "",
+        Placeholder = "",
+        Numeric = false,
+        Finished = false,
+        Callback = function()
+        end
+    })
+
+    Tabs.STSV:AddButton({
+        Title = "Clear JobId",
+        Description = "",
+        Callback = function()
+        end
+    })
+
+Tabs.STSV:AddToggle("Spam Join", {Title = "Spam Join", Default = false })
+
+    Tabs.STSV:AddButton({
+        Title = "Join Server",
+        Description = "",
+        Callback = function()
+        end
+    })
+
+    Tabs.STSV:AddButton({
+        Title = "Copy JobId",
+        Description = "",
+        Callback = function()
+        end
+    })
+
+    Tabs.STSV:AddButton({
+        Title = "Hop Server",
+        Description = "",
+        Callback = function()
+        end
+    })
+
+    Tabs.STSV:AddButton({
+        Title = "Hop Server Less People",
+        Description = "",
+        Callback = function()
+        end
+})
+
 
 _G.FastAttack = true
 
